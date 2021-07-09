@@ -8,7 +8,6 @@ import routes from './routes';
 import './database';
 // Others
 import path from 'path';
-import multer from 'multer';
 
 /**
  * CONFIG
@@ -35,24 +34,14 @@ app.use(cors());
 // Helmet
 app.use(helmet());
 
-// General routes
-// app.use('/api', routes);
-
-// Folder Middleware
-app.use(multer({
-    // dest: 'public/images'
-    dest: path.join(__dirname, 'public/images')
-}).single('image'));
 
 // Form routes
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.post('/api/upload', (req, res) => {
-    console.log(req.file)
-    res.send('uploaded');
-});
+// General routes
+app.use('/api', routes);
 
 // Init
 app.listen(process.env.PORT, () => {
