@@ -18,7 +18,8 @@ export const imageHandler = multer({
         const types = /jpeg|jpg|png|gif/;
         const mimetype = types.test(file.mimetype);
         const extension = types.test(path.extname(file.originalname));
-        return mimetype && extension ? cb(null, true) : cb('File must be image type (jpeg | jpg | png | gif)')
+        return (mimetype && extension) ?
+            cb(null, true) :
+            cb('File must be image type (jpeg | jpg | png | gif)');
     }
-
 }).single('image');
