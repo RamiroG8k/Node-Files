@@ -34,7 +34,6 @@ app.use(cors());
 // Helmet
 app.use(helmet());
 
-
 // Form routes
 app.get('/', (req, res) => {
     res.render('index');
@@ -42,6 +41,9 @@ app.get('/', (req, res) => {
 
 // General routes
 app.use('/api', routes);
+
+// Static files
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Init
 app.listen(process.env.PORT, () => {

@@ -5,7 +5,7 @@ const router = Router();
 
 router.post('/', imageHandler, (req, res) => {
     console.log('FILE', req.file);
-    console.log('ELSE', req);
+    console.log('ELSE', req.body);
     res.send('UPLOADED')
 });
 
