@@ -1,5 +1,6 @@
 import multer from 'multer';
 import path from 'path';
+import uuid from 'uuidv4';
 
 /**
  * Config
@@ -8,7 +9,8 @@ import path from 'path';
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '../../public/images'),
     filename: (req, file, cb) => {
-        cb(null, file.originalname);
+        cb(null, uuid() + '.webp');
+        // cb(null, uuid() + path.extname(file.originalname));
     }
 });
 
