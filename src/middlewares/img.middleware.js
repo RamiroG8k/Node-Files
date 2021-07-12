@@ -1,6 +1,6 @@
 import multer from 'multer';
 import path from 'path';
-import uuid from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 
 /**
  * Config
