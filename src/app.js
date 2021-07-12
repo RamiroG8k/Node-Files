@@ -34,11 +34,6 @@ app.use(cors());
 // Helmet
 app.use(helmet());
 
-// Form routes
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
 // General routes
 app.use('/api', routes);
 
